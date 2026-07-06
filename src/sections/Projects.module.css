@@ -1,0 +1,64 @@
+.projects {}
+.header { margin-bottom: 3.5rem; }
+.heading {
+  font-family: var(--font-d); font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  letter-spacing: -0.02em; line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+.accent { color: var(--gold); }
+.sub { font-size: 1rem; color: var(--text-muted); font-style: italic; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.75rem;
+  display: flex; flex-direction: column; gap: 0.8rem;
+  position: relative; overflow: hidden;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  cursor: pointer;
+}
+.card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--c); opacity: 0; transition: opacity var(--transition);
+}
+.card:hover { background: var(--bg-card-h); border-color: var(--c); transform: translateY(-4px); }
+.card:hover::before { opacity: 1; }
+
+.cardHead { display: flex; justify-content: space-between; align-items: flex-start; }
+.kind { font-family: var(--font-m); font-size: 0.67rem; color: var(--text-dim); letter-spacing: 0.06em; }
+.badge {
+  font-family: var(--font-m); font-size: 0.63rem;
+  padding: 0.18rem 0.55rem; border-radius: 20px; white-space: nowrap;
+  font-weight: 500;
+}
+
+.title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 1.15rem; color: var(--text); letter-spacing: -0.01em;
+}
+
+.desc { font-size: 0.855rem; color: var(--text-muted); line-height: 1.75; flex: 1; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.tag {
+  font-family: var(--font-m); font-size: 0.65rem;
+  padding: 0.18rem 0.5rem; border-radius: 3px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text-dim); border: 1px solid var(--border);
+}
+
+.link {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.78rem; color: var(--text-dim);
+  transition: color var(--transition); margin-top: 0.25rem;
+}
+.card:hover .link { color: var(--c); }
+
+@media (max-width: 960px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { .grid { grid-template-columns: 1fr; } }

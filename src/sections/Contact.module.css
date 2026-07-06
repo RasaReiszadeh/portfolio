@@ -1,0 +1,60 @@
+.contact {}
+.grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; margin-bottom: 5rem; }
+
+.left {}
+.heading {
+  font-family: var(--font-d); font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1.25rem;
+}
+.accent { color: var(--coral); }
+.bio { font-size: 0.975rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 0.75rem; }
+
+.links { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.emailBtn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--coral); color: #fff;
+  padding: 0.85rem 1.75rem; border-radius: 5px;
+  font-family: var(--font-d); font-weight: 700; font-size: 0.9rem;
+  align-self: flex-start;
+  transition: background var(--transition), transform var(--transition);
+}
+.emailBtn:hover { background: #e63858; transform: translateY(-2px); }
+
+.social { display: flex; gap: 1.5rem; }
+.socialLink {
+  font-size: 0.875rem; color: var(--text-muted); font-weight: 500;
+  transition: color var(--transition);
+}
+.socialLink:hover { color: var(--violet); }
+
+.right {}
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 2rem;
+  display: flex; flex-direction: column; gap: 0;
+}
+.row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid var(--border);
+}
+.row:last-child { border-bottom: none; }
+.rowLabel { font-family: var(--font-m); font-size: 0.68rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+.rowValue { font-size: 0.875rem; color: var(--text); font-weight: 500; text-align: right; max-width: 60%; }
+
+.available { display: flex; align-items: center; gap: 0.4rem; color: #34D399; font-weight: 600; font-size: 0.875rem; }
+.dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #34D399; flex-shrink: 0;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(52,211,153,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(52,211,153,0); }
+}
+
+.footer {
+  border-top: 1px solid var(--border); padding-top: 2rem; text-align: center;
+}
+.footer p { font-family: var(--font-m); font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.04em; }
+
+@media (max-width: 860px) { .grid { grid-template-columns: 1fr; gap: 3rem; } }

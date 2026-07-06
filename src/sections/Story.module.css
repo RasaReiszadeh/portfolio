@@ -1,0 +1,61 @@
+.story {}
+.header { margin-bottom: 4.5rem; }
+.heading {
+  font-family: var(--font-d); font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  letter-spacing: -0.02em; line-height: 1.15;
+}
+.accent { color: var(--teal); }
+
+/* Timeline */
+.timeline { display: flex; flex-direction: column; gap: 0; margin-bottom: 5rem; }
+
+.entry {
+  display: grid; grid-template-columns: 130px 1fr;
+  gap: 0 2.5rem; position: relative; padding-bottom: 2.5rem;
+}
+
+.yearCol {
+  display: flex; flex-direction: column; align-items: flex-end;
+  padding-top: 0.25rem; position: relative;
+}
+.year {
+  font-family: var(--font-m); font-size: 0.78rem;
+  font-weight: 500; letter-spacing: 0.06em;
+  white-space: nowrap; text-align: right;
+  margin-bottom: 0.6rem;
+}
+.line {
+  width: 2px; flex: 1; min-height: 100%; opacity: 0.25; border-radius: 1px;
+}
+
+.body { padding-top: 0.1rem; }
+.title {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 1.1rem; color: var(--text);
+  margin-bottom: 0.6rem; letter-spacing: -0.01em;
+}
+.text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
+
+/* Differentiators box */
+.differentBox {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 2.5rem;
+}
+.traits {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2rem 2.5rem; margin-top: 1.5rem;
+}
+.trait {}
+.traitLabel {
+  font-family: var(--font-d); font-weight: 700;
+  font-size: 0.95rem; color: var(--coral);
+  display: block; margin-bottom: 0.4rem;
+}
+.traitDesc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+
+@media (max-width: 900px) { .traits { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) {
+  .entry { grid-template-columns: 70px 1fr; gap: 0 1.25rem; }
+  .traits { grid-template-columns: 1fr; }
+}
