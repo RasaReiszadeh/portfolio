@@ -1,99 +1,136 @@
-import { useReveal } from '../useReveal'
-import s from './Projects.module.css'
+import { useReveal } from "../useReveal";
+import styles from "./Projects.module.css";
 
 const projects = [
   {
-    id: 'fragments',
-    title: 'Fragments',
-    kind: 'Cloud Microservice API',
-    desc: 'Production-grade REST API for storing and converting user data fragments. AWS S3 for storage, DynamoDB for metadata, JWT + HTTP Basic auth via Passport.js, Docker containerization, image format conversion (Sharp), Markdown-to-HTML rendering. Unit and integration tested with Jest, Supertest, and Hurl.',
-    tags: ['Node.js','Express','AWS S3','DynamoDB','Docker','Passport.js','Jest'],
-    color: '#FF4D6D',
-    badge: 'Cloud + Backend',
-    gh: 'https://github.com/RasaReiszadeh',
+    title: "Net & Notion",
+    subtitle: "Published on Google Play · Android, iOS & Web",
+    tags: ["React Native", "Expo 54", "Firebase", "React Navigation"],
+    color: "#A78BFA",
+    description:
+      "A mobile app for saving professional contacts with context — who you met, where you met them, and what to follow up on. Scan or share contacts instantly with QR codes. Works on Android, iOS, and web. Published on the Google Play Store. Built with a team of 4.",
+    link: "https://play.google.com/store/apps/details?id=com.rbdfranck.netandnotion",
+    highlight: "🎉 Live on Google Play",
   },
   {
-    id: 'self-driving',
-    title: 'Self-Driving Car Simulation',
-    kind: 'Computer Vision · CNN',
-    desc: 'NVIDIA\'s end-to-end CNN architecture for autonomous steering control. Full ML pipeline: dataset balancing to remove steering-zero bias, image augmentation (flip, brightness, zoom, pan), YUV colour preprocessing, EarlyStopping + ModelCheckpoint callbacks. Stable performance in the Udacity simulator.',
-    tags: ['Python','TensorFlow','Keras','OpenCV','NumPy','Pandas'],
-    color: '#FFB347',
-    badge: 'ML / CV',
-    gh: 'https://github.com/RasaReiszadeh',
+    title: "AI Dev Tooling Suite",
+    subtitle: "AI Tools for Real Developer Problems",
+    tags: ["TypeScript", "Node.js", "OpenRouter", "ChromaDB", "Tavily", "Zod"],
+    color: "#4ECDC4",
+    description:
+      "A set of AI-powered tools that solve real developer problems. Take a screenshot of an error — it tells you what's wrong and how to fix it. Search a product catalogue by describing what you need in plain English. Ask questions about the Node.js docs and get direct answers. Analyse a GitHub pull request and get structured feedback. Screen job postings for red flags automatically. Each tool was built end-to-end using TypeScript, LLM APIs, vector search, and web scraping.",
+    link: "https://github.com/RasaReiszadeh",
+    highlight: "RAG · Vision AI · Agents",
   },
   {
-    id: 'settlecan',
-    title: 'SettleCAN',
-    kind: 'Full-Stack Capstone · Team of 5',
-    desc: 'Web platform helping newcomers to Canada navigate settlement resources — work permits, health info, checklists, community tools. I owned Task Manager, Checklist, Community Hub, email notification service, unit tests, and database schema design.',
-    tags: ['React','Vite','Express.js','Supabase','PostgreSQL','Jest','SCSS'],
-    color: '#A78BFA',
-    badge: 'Social Impact',
-    gh: 'https://github.com/RasaReiszadeh',
+    title: "Fragments",
+    subtitle: "Cloud Microservice API",
+    tags: ["Node.js", "Express", "AWS S3", "DynamoDB", "Docker", "Jest"],
+    color: "#FF4D6D",
+    description:
+      "A cloud API that lets users store, retrieve, and convert text and image data. Supports plain text, Markdown, HTML, PNG, and JPEG — and converts between formats on request. Built with AWS S3 for storage, DynamoDB for metadata, Docker for deployment, and JWT authentication. Includes a companion web app where users can manage and convert their data in the browser.",
+    link: "https://github.com/RasaReiszadeh",
   },
   {
-    id: 'aip444',
-    title: 'AI Developer Tooling Suite',
-    kind: 'LLM API · TypeScript',
-    desc: 'Monorepo of AI-powered developer tools: AI commit message generator from staged diffs, structured flashcard generator with few-shot prompting, GitHub PR analyser using chain-of-thought reasoning, multi-turn tool-calling agent loop over the OpenRouter LLM API, and a Hono HTTP server with Zod-validated structured outputs.',
-    tags: ['TypeScript','Node.js','Hono','Zod','OpenRouter','Prompt Engineering'],
-    color: '#2DD4BF',
-    badge: 'AI Tooling',
-    gh: 'https://github.com/RasaReiszadeh',
+    title: "SettleCAN",
+    subtitle: "Full-Stack Capstone · Team of 5",
+    tags: [
+      "React",
+      "Vite",
+      "Express.js",
+      "Supabase",
+      "PostgreSQL",
+      "WebSockets",
+    ],
+    color: "#C084FC",
+    description:
+      "A web app that helps newcomers to Canada find and track settlement resources — work permits, health services, housing checklists, and community tools. Built with a team of 5. I owned the task manager, checklist, community hub, real-time notifications, scheduled email reminders, and database schema.",
+    link: "https://github.com/RasaReiszadeh",
+    highlight: "Social Impact",
   },
   {
-    id: 'hotel',
-    title: 'RXH Grand Hotel System',
-    kind: 'Java · Database Design',
-    desc: 'Full hotel management system: check-in/out, room booking, loyalty programmes, waitlists, admin dashboard with revenue reporting and occupancy tracking. I designed the complete ERD, normalised SQL schema with FK constraints, and the Java service layer. Team of 4.',
-    tags: ['Java','SQLite','JDBC','OOP','ERD Design'],
-    color: '#F87171',
-    badge: 'Systems Design',
-    gh: 'https://github.com/RasaReiszadeh',
+    title: "Self-Driving Car",
+    subtitle: "CNN Simulation",
+    tags: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy"],
+    color: "#FFB347",
+    description:
+      "A machine learning model that learns to steer a car on its own inside a driving simulator. Trained on camera footage using NVIDIA's neural network architecture. Built the full data pipeline — cleaning and balancing the dataset, augmenting images to improve accuracy, and preprocessing frames. The model drives without human input in the Udacity simulator.",
+    link: "https://github.com/RasaReiszadeh",
   },
-]
+  {
+    title: "RXH Grand Hotel",
+    subtitle: "Hotel Management System",
+    tags: ["Java", "SQLite", "JDBC", "OOP", "ERD Design"],
+    color: "#FF8B64",
+    description:
+      "A desktop app that manages hotel operations — guest check-in and check-out, room bookings, loyalty programmes, waitlists, and an admin dashboard with revenue reports and activity logs. Designed the full database from scratch including the schema, table relationships, and constraints. Team of 4.",
+    link: "https://github.com/RasaReiszadeh",
+  },
+];
 
 export default function Projects() {
-  const ref = useReveal()
+  const ref = useReveal();
 
   return (
-    <section id="projects" className={`section ${s.projects}`} ref={ref}>
-      <div className="section-inner">
-        <div className={`reveal ${s.header}`}>
-          <span className="eyebrow">Selected work</span>
-          <h2 className={s.heading}>
-            Projects that went <span className={s.accent}>further than the brief</span>
+    <section id="projects" className={styles.projects} ref={ref}>
+      <div className={styles.inner}>
+        <div className={`${styles.header} reveal`}>
+          <p className={styles.label}>Selected work</p>
+          <h2 className={styles.heading}>
+            Projects that went
+            <br />
+            <span className={styles.accent}>beyond the tutorial</span>
           </h2>
-          <p className={s.sub}>Each one taught me something the classroom didn't.</p>
         </div>
 
-        <div className={s.grid}>
+        <div className={styles.grid}>
           {projects.map((p, i) => (
             <a
-              key={p.id}
-              href={p.gh} target="_blank" rel="noopener noreferrer"
-              className={`reveal d${(i % 3) + 1} ${s.card}`}
-              style={{ '--c': p.color }}
+              key={p.title}
+              href={p.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${styles.card} reveal reveal-delay-${(i % 3) + 1}`}
+              style={{ "--accent": p.color }}
             >
-              <div className={s.cardHead}>
-                <span className={s.kind}>{p.kind}</span>
-                <span className={s.badge} style={{ color: p.color, background: `${p.color}18` }}>
-                  {p.badge}
+              <div className={styles.cardTop}>
+                <div
+                  className={styles.cardIcon}
+                  style={{ background: `${p.color}18`, color: p.color }}
+                >
+                  {p.title.charAt(0)}
+                </div>
+                {p.highlight && (
+                  <span className={styles.badge}>{p.highlight}</span>
+                )}
+              </div>
+
+              <h3 className={styles.cardTitle}>{p.title}</h3>
+              <p className={styles.cardSubtitle}>{p.subtitle}</p>
+              <p className={styles.cardDesc}>{p.description}</p>
+
+              <div className={styles.tags}>
+                {p.tags.map((t) => (
+                  <span key={t} className={styles.tag}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div className={styles.cardArrow}>
+                <span>
+                  {p.title === "Net & Notion"
+                    ? "View on Google Play"
+                    : "View on GitHub"}
                 </span>
-              </div>
-
-              <h3 className={s.title}>{p.title}</h3>
-              <p className={s.desc}>{p.desc}</p>
-
-              <div className={s.tags}>
-                {p.tags.map(t => <span key={t} className={s.tag}>{t}</span>)}
-              </div>
-
-              <div className={s.link}>
-                <span>View on GitHub</span>
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
             </a>
@@ -101,5 +138,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
