@@ -1,67 +1,78 @@
-import { useEffect, useRef } from 'react'
-import s from './Hero.module.css'
+import { useEffect, useRef } from "react";
+import s from "./Hero.module.css";
 
 export default function Hero() {
-  const canvasRef = useRef(null)
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-    let raf
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let raf;
 
-    const resize = () => { canvas.width = innerWidth; canvas.height = innerHeight }
-    resize()
-    window.addEventListener('resize', resize)
+    const resize = () => {
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
 
-    // DNA helix-inspired dots — biology meets code
     const nodes = Array.from({ length: 120 }, () => ({
       x: Math.random() * innerWidth,
       y: Math.random() * innerHeight,
       r: Math.random() * 1.4 + 0.3,
       vx: (Math.random() - 0.5) * 0.25,
       vy: (Math.random() - 0.5) * 0.25,
-      hue: Math.random() > 0.6 ? 'coral' : Math.random() > 0.5 ? 'violet' : 'teal',
-    }))
+      hue:
+        Math.random() > 0.6 ? "coral" : Math.random() > 0.5 ? "violet" : "teal",
+    }));
 
-    const colors = { coral: '255,77,109', violet: '167,139,250', teal: '45,212,191' }
+    const colors = {
+      coral: "255,77,109",
+      violet: "167,139,250",
+      teal: "45,212,191",
+    };
 
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      nodes.forEach(n => {
-        n.x += n.vx; n.y += n.vy
-        if (n.x < 0) n.x = canvas.width
-        if (n.x > canvas.width) n.x = 0
-        if (n.y < 0) n.y = canvas.height
-        if (n.y > canvas.height) n.y = 0
-      })
+      nodes.forEach((n) => {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < 0) n.x = canvas.width;
+        if (n.x > canvas.width) n.x = 0;
+        if (n.y < 0) n.y = canvas.height;
+        if (n.y > canvas.height) n.y = 0;
+      });
 
-      // Connect nearby nodes — like a network/neural mesh
       nodes.forEach((a, i) => {
-        nodes.slice(i + 1).forEach(b => {
-          const dx = a.x - b.x, dy = a.y - b.y
-          const dist = Math.sqrt(dx * dx + dy * dy)
+        nodes.slice(i + 1).forEach((b) => {
+          const dx = a.x - b.x,
+            dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 110) {
-            ctx.beginPath()
-            ctx.moveTo(a.x, a.y)
-            ctx.lineTo(b.x, b.y)
-            ctx.strokeStyle = `rgba(167,139,250,${0.07 * (1 - dist / 110)})`
-            ctx.lineWidth = 0.6
-            ctx.stroke()
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(167,139,250,${0.07 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
           }
-        })
-        ctx.beginPath()
-        ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(${colors[a.hue]},0.45)`
-        ctx.fill()
-      })
+        });
+        ctx.beginPath();
+        ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${colors[a.hue]},0.45)`;
+        ctx.fill();
+      });
 
-      raf = requestAnimationFrame(draw)
-    }
-    draw()
+      raf = requestAnimationFrame(draw);
+    };
+    draw();
 
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
-  }, [])
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
 
   return (
     <section id="top" className={s.hero}>
@@ -79,23 +90,28 @@ export default function Hero() {
         </h1>
 
         <p className={s.role}>
-          Software Developer &nbsp;<span className={s.sep}>·</span>&nbsp;
-          AI Engineer &nbsp;<span className={s.sep}>·</span>&nbsp;
-          Biology × Code
+          Software Developer &nbsp;<span className={s.sep}>·</span>&nbsp; AI
+          Engineer &nbsp;<span className={s.sep}>·</span>&nbsp; QA Automation
         </p>
 
         <p className={s.statement}>
-          I came from a biology lab and ended up building neural networks.
-          I moved countries and earned a government engineering co-op.
-          I care about technology that actually helps people — not just technology that ships.
+          I built a published mobile app, a cloud microservice on AWS, and AI
+          tools with RAG pipelines and vision AI. I earned a government
+          engineering co-op where the CIO recognized my work. I care about
+          shipping things that actually work.
         </p>
 
         <div className={s.ctas}>
-          <a href="#projects" className={s.primary}>See my work</a>
-          <a href="#story" className={s.secondary}>My story</a>
+          <a href="#projects" className={s.primary}>
+            See my work
+          </a>
+          <a href="#story" className={s.secondary}>
+            My story
+          </a>
           <a
             href="https://github.com/RasaReiszadeh"
-            target="_blank" rel="noopener noreferrer"
+            target="_blank"
+            rel="noopener noreferrer"
             className={s.ghost}
           >
             GitHub ↗
@@ -108,5 +124,5 @@ export default function Hero() {
         <span>scroll</span>
       </div>
     </section>
-  )
+  );
 }

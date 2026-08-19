@@ -1,47 +1,47 @@
-import { useReveal } from '../useReveal'
-import s from './Interests.module.css'
+import { useReveal } from "../useReveal";
+import s from "./Interests.module.css";
 
 const interests = [
   {
-    icon: '🧬',
-    title: 'Biology × Bioinformatics',
-    body: 'My original field. I\'m actively exploring where computational methods meet biological data — genomics pipelines, clinical data analysis, health tech software. The lab mindset and the engineering mindset are more similar than most people think.',
-    color: 'var(--teal)',
+    icon: "📱",
+    title: "Shipped software",
+    body: "Net & Notion is live on Google Play. Works on Android, iOS, and web. Taking something from idea to a published app that real users can download is a different kind of satisfaction than finishing a course project.",
+    color: "var(--violet)",
   },
   {
-    icon: '🎮',
-    title: 'Games that ask hard questions',
-    body: 'Detroit: Become Human got me thinking about AI consciousness and ethics before it was fashionable. The Sims taught me systems design before I knew what that meant. I take games seriously as a lens for understanding human behaviour and emergent complexity.',
-    color: 'var(--violet)',
+    icon: "🤖",
+    title: "AI that solves real problems",
+    body: "I build AI tools that do specific useful things — debug errors from screenshots, screen job postings for scams, answer questions about documentation using RAG. The interesting part is the engineering, not the hype.",
+    color: "var(--coral)",
   },
   {
-    icon: '🤖',
-    title: 'AI Ethics & Human-centred AI',
-    body: 'I build AI tools. I also think about what those tools do to people. The technical and the ethical aren\'t separate conversations — they should happen in the same room, and I want to be in that room.',
-    color: 'var(--coral)',
+    icon: "☁️",
+    title: "Cloud and distributed systems",
+    body: "Building the Fragments microservice — AWS S3, DynamoDB, Docker, JWT, integration tests — taught me how production systems actually work. I want to keep going deeper into distributed architecture and cloud-native engineering.",
+    color: "var(--teal)",
   },
   {
-    icon: '📚',
-    title: 'How I actually learn',
-    body: 'I don\'t memorise answers — I reconstruct understanding from first principles. When I get stuck, I read primary sources. When I learn something new, I try to teach it back. That\'s a pattern from tutoring that never went away.',
-    color: 'var(--gold)',
+    icon: "🔍",
+    title: "QA as a mindset, not a role",
+    body: "My government co-op showed me that quality is an engineering discipline, not a checkbox. I think about edge cases, failure modes, and reproducibility whether I'm writing tests or writing features.",
+    color: "var(--gold)",
   },
   {
-    icon: '🌍',
-    title: 'Volunteering that leads somewhere real',
-    body: 'I\'m actively looking for volunteer technical roles — open source projects, health tech nonprofits, research labs, community organisations using data. I\'m not interested in performative volunteering. I want to contribute to something that matters.',
-    color: 'var(--teal)',
+    icon: "🌍",
+    title: "Volunteering that leads somewhere real",
+    body: "I'm open to meaningful volunteer technical roles — open source, health tech nonprofits, community organisations using data. I'm not interested in performative volunteering. I want to contribute to something that matters.",
+    color: "var(--teal)",
   },
   {
-    icon: '🔬',
-    title: 'Research & continuous learning',
-    body: 'I read papers. I take courses. I follow researchers. Right now I\'m particularly interested in RAG architectures, computational biology tooling, and the practical side of ML deployment — not just training models but making them useful.',
-    color: 'var(--violet)',
+    icon: "📚",
+    title: "How I actually learn",
+    body: "I don't memorise answers — I reconstruct understanding from first principles. When I get stuck, I read primary sources. When I learn something, I try to explain it back. That's a pattern from tutoring that never went away.",
+    color: "var(--violet)",
   },
-]
+];
 
 export default function Interests() {
-  const ref = useReveal()
+  const ref = useReveal();
 
   return (
     <section id="interests" className={`section ${s.interests}`} ref={ref}>
@@ -52,13 +52,18 @@ export default function Interests() {
             What I actually <span className={s.accent}>think about</span>
           </h2>
           <p className={s.sub}>
-            The things that make me a more interesting engineer than my commit history suggests.
+            The things that make me a more interesting engineer than my commit
+            history suggests.
           </p>
         </div>
 
         <div className={s.grid}>
           {interests.map((item, i) => (
-            <div key={item.title} className={`reveal d${(i % 3) + 1} ${s.card}`} style={{ '--c': item.color }}>
+            <div
+              key={item.title}
+              className={`reveal d${(i % 3) + 1} ${s.card}`}
+              style={{ "--c": item.color }}
+            >
               <span className={s.icon}>{item.icon}</span>
               <h3 className={s.title}>{item.title}</h3>
               <p className={s.body}>{item.body}</p>
@@ -67,5 +72,5 @@ export default function Interests() {
         </div>
       </div>
     </section>
-  )
+  );
 }
