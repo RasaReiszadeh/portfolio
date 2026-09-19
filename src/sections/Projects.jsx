@@ -1,70 +1,54 @@
-import { useReveal } from "../useReveal";
 import styles from "./Projects.module.css";
+import { useReveal } from "../useReveal";
 
-const projects = [
+const PROJECTS = [
   {
-    title: "Net & Notion",
-    subtitle: "Published on Google Play · Android, iOS & Web",
-    tags: ["React Native", "Expo 54", "Firebase", "React Navigation"],
-    color: "#A78BFA",
-    description:
-      "A mobile app for saving professional contacts with context — who you met, where you met them, and what to follow up on. Scan or share contacts instantly with QR codes. Works on Android, iOS, and web. Published on the Google Play Store. Built with a team of 4.",
-    link: "https://play.google.com/store/apps/details?id=com.rbdfranck.netandnotion",
-    highlight: "🎉 Live on Google Play",
+    title: "AI Job Market & Career Fit Analyzer",
+    desc: "Autonomous TypeScript intelligence pipeline that extracts unstructured tech job postings into strict Zod schemas, performs WHOIS company verification, and computes multi-dimensional fit scoring and skill-gap reports against developer profiles.",
+    tags: ["TypeScript", "Node.js", "OpenAI API", "Zod", "WHOIS"],
+    repo: "https://github.com/RasaReiszadeh/ai-job-market-analyzer",
+    demo: null,
+    highlight: "LLM Structured Outputs & Agentic Scoring",
   },
   {
-    title: "AI Dev Tooling Suite",
-    subtitle: "AI Tools for Real Developer Problems",
-    tags: ["TypeScript", "Node.js", "OpenRouter", "ChromaDB", "Tavily", "Zod"],
-    color: "#4ECDC4",
-    description:
-      "A set of AI-powered tools that solve real developer problems. Take a screenshot of an error — it tells you what's wrong and how to fix it. Search a product catalogue by describing what you need in plain English. Ask questions about the Node.js docs and get direct answers. Analyse a GitHub pull request and get structured feedback. Screen job postings for red flags automatically. Each tool was built end-to-end using TypeScript, LLM APIs, vector search, and web scraping.",
-    link: "https://github.com/RasaReiszadeh",
-    highlight: "RAG · Vision AI · Agents",
+    title: "Multi-Agent AI Code Reviewer",
+    desc: "Collaborative static code analysis engine deploying domain-specific review agents (Security, Performance, Clean Architecture) paired with an adversarial consensus judge model that eliminates false positives and ranks findings by severity.",
+    tags: ["TypeScript", "Node.js", "OpenAI API", "Multi-Agent Systems"],
+    repo: "https://github.com/RasaReiszadeh/ai-code-reviewer",
+    demo: null,
+    highlight: "Consensus Judge & Static AST Analysis",
   },
   {
-    title: "Fragments",
-    subtitle: "Cloud Microservice API",
-    tags: ["Node.js", "Express", "AWS S3", "DynamoDB", "Docker", "Jest"],
-    color: "#FF4D6D",
-    description:
-      "A cloud API that lets users store, retrieve, and convert text and image data. Supports plain text, Markdown, HTML, PNG, and JPEG — and converts between formats on request. Built with AWS S3 for storage, DynamoDB for metadata, Docker for deployment, and JWT authentication. Includes a companion web app where users can manage and convert their data in the browser.",
-    link: "https://github.com/RasaReiszadeh",
+    title: "Fragments Cloud Microservice & UI",
+    desc: "Containerized, scalable cloud REST API and Next.js SPA client for multi-format content ingestion, dynamic on-the-fly media conversion (Markdown, HTML, JSON, Images), and secure authentication backed by Amazon Cognito and AWS S3.",
+    tags: ["Node.js", "Express", "Next.js", "AWS S3", "Amazon Cognito", "Docker", "Jest", "Cypress"],
+    repo: "https://github.com/RasaReiszadeh/fragments",
+    demo: "https://github.com/RasaReiszadeh/fragments-ui",
+    highlight: "Cloud Architecture & Media Pipeline",
   },
   {
-    title: "SettleCAN",
-    subtitle: "Full-Stack Capstone · Team of 5",
-    tags: [
-      "React",
-      "Vite",
-      "Express.js",
-      "Supabase",
-      "PostgreSQL",
-      "WebSockets",
-    ],
-    color: "#C084FC",
-    description:
-      "A web app that helps newcomers to Canada find and track settlement resources — work permits, health services, housing checklists, and community tools. Built with a team of 5. I owned the task manager, checklist, community hub, real-time notifications, scheduled email reminders, and database schema.",
-    link: "https://github.com/RasaReiszadeh",
-    highlight: "Social Impact",
+    title: "SettleCAN Platform",
+    desc: "Full-stack settlement assistance web platform helping Canadian newcomers manage multi-stage relocation roadmaps, track work/study permit compliance countdowns, receive automated deadline alerts, and connect through peer discussion hubs.",
+    tags: ["React", "Vite", "Node.js", "Express", "PostgreSQL", "Supabase", "Docker"],
+    repo: "https://github.com/RasaReiszadeh/settlecan",
+    demo: null,
+    highlight: "Full-Stack Enterprise & Compliance Engine",
   },
   {
-    title: "Self-Driving Car",
-    subtitle: "CNN Simulation",
-    tags: ["Python", "TensorFlow", "Keras", "OpenCV", "NumPy"],
-    color: "#FFB347",
-    description:
-      "A machine learning model that learns to steer a car on its own inside a driving simulator. Trained on camera footage using NVIDIA's neural network architecture. Built the full data pipeline — cleaning and balancing the dataset, augmenting images to improve accuracy, and preprocessing frames. The model drives without human input in the Udacity simulator.",
-    link: "https://github.com/RasaReiszadeh",
+    title: "Net & Notion Mobile CRM",
+    desc: "Cross-platform mobile networking and contact manager featuring scannable QR card generation, camera-based contact scanning, follow-up reminder scheduling, and AI-assisted semantic contact search and auto-categorization.",
+    tags: ["React Native", "Expo", "Firebase", "Firestore", "OpenAI API"],
+    repo: "https://github.com/RasaReiszadeh/net-and-notion",
+    demo: null,
+    highlight: "Mobile QR Exchange & AI Contact Search",
   },
   {
-    title: "RXH Grand Hotel",
-    subtitle: "Hotel Management System",
-    tags: ["Java", "SQLite", "JDBC", "OOP", "ERD Design"],
-    color: "#FF8B64",
-    description:
-      "A desktop app that manages hotel operations — guest check-in and check-out, room bookings, loyalty programmes, waitlists, and an admin dashboard with revenue reports and activity logs. Designed the full database from scratch including the schema, table relationships, and constraints. Team of 4.",
-    link: "https://github.com/RasaReiszadeh",
+    title: "Grand Hotel Reservation System",
+    desc: "Enterprise desktop hotel management platform built with JavaFX and an embedded H2 SQL database. Features a self-service guest booking kiosk and an admin portal with automated iText PDF and CSV occupancy/revenue reporting.",
+    tags: ["Java", "JavaFX", "FXML", "H2 Database", "JDBC", "Maven", "GoF Patterns"],
+    repo: "https://github.com/RasaReiszadeh/grand-hotel-management-system",
+    demo: null,
+    highlight: "Gang of Four (GoF) Architectural Patterns",
   },
 ];
 
@@ -73,42 +57,19 @@ export default function Projects() {
 
   return (
     <section id="projects" className={styles.projects} ref={ref}>
-      <div className={styles.inner}>
-        <div className={`${styles.header} reveal`}>
-          <p className={styles.label}>Selected work</p>
-          <h2 className={styles.heading}>
-            Projects that went
-            <br />
-            <span className={styles.accent}>beyond the tutorial</span>
-          </h2>
-        </div>
-
+      <div className="container">
+        <p className="section-label reveal">What I Build</p>
+        <h2 className="section-title reveal">Projects</h2>
         <div className={styles.grid}>
-          {projects.map((p, i) => (
-            <a
+          {PROJECTS.map((p, i) => (
+            <div
               key={p.title}
-              href={p.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.card} reveal reveal-delay-${(i % 3) + 1}`}
-              style={{ "--accent": p.color }}
+              className={`${styles.card} reveal`}
+              style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <div className={styles.cardTop}>
-                <div
-                  className={styles.cardIcon}
-                  style={{ background: `${p.color}18`, color: p.color }}
-                >
-                  {p.title.charAt(0)}
-                </div>
-                {p.highlight && (
-                  <span className={styles.badge}>{p.highlight}</span>
-                )}
-              </div>
-
-              <h3 className={styles.cardTitle}>{p.title}</h3>
-              <p className={styles.cardSubtitle}>{p.subtitle}</p>
-              <p className={styles.cardDesc}>{p.description}</p>
-
+              <div className={styles.highlight}>{p.highlight}</div>
+              <h3 className={styles.title}>{p.title}</h3>
+              <p className={styles.desc}>{p.desc}</p>
               <div className={styles.tags}>
                 {p.tags.map((t) => (
                   <span key={t} className={styles.tag}>
@@ -116,24 +77,29 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-
-              <div className={styles.cardArrow}>
-                <span>
-                  {p.title === "Net & Notion"
-                    ? "View on Google Play"
-                    : "View on GitHub"}
-                </span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <div className={styles.links}>
+                {p.repo && (
+                  <a
+                    href={p.repo}
+                    className="btn btn-secondary"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Source →
+                  </a>
+                )}
+                {p.demo && (
+                  <a
+                    href={p.demo}
+                    className="btn btn-primary"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {p.title.includes("Fragments") ? "Frontend Repo →" : "Live Demo →"}
+                  </a>
+                )}
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
